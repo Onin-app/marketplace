@@ -1,0 +1,14 @@
+{
+    "title": "Translate",
+    "description": "A aggregated translation plugin running on Onin",
+    "author": "b-yp",
+    "repository": "b-yp/onin-web-translation",
+    "icon": "icon.svg",
+    "category": "productivity",
+    "keywords": [
+        "翻译",
+        "工具",
+        "效率"
+    ],
+    "license": "MIT"
+}
