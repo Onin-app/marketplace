@@ -65,7 +65,8 @@ function collectManifests() {
                 const plugin = {
                     id,
                     addedAt,
-                    ...manifest
+                    ...manifest,
+                    folder: dir
                 };
 
                 const status = existingPlugins[id] ? '更新' : '新增';
