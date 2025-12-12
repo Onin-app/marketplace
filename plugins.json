@@ -1,22 +1,4 @@
 {
-  "datetime": 1765533147476,
-  "packages": [
-    {
-      "id": "translate",
-      "addedAt": 1765533147471,
-      "title": "Translate",
-      "description": "A aggregated translate plugin running on Onin",
-      "author": "b-yp",
-      "repository": "b-yp/onin-web-translate",
-      "icon": "icon.svg",
-      "category": "productivity",
-      "keywords": [
-        "翻译",
-        "工具",
-        "效率"
-      ],
-      "license": "MIT",
-      "folder": "onin-web-translate"
-    }
-  ]
+  "datetime": 1765533620616,
+  "packages": []
 }
