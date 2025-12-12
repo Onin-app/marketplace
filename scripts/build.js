@@ -4,14 +4,6 @@ const path = require('path');
 const packagesDir = path.join(__dirname, '../packages');
 const outputFile = path.join(__dirname, '../plugins.json');
 
-// 将 title 转换为 id 格式 (例如: "Translate" -> "translate", "Web Translate" -> "web-translate")
-function titleToId(title) {
-    return title
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9-]/g, '');
-}
-
 // 读取现有的 plugins.json
 function getExistingPlugins() {
     if (!fs.existsSync(outputFile)) {
@@ -57,21 +49,24 @@ function collectManifests() {
             try {
                 const content = fs.readFileSync(manifestPath, 'utf-8');
                 const manifest = JSON.parse(content);
-                const id = titleToId(manifest.title);
+
+                if (!manifest.id) {
+                    console.error(`✗ ${dir}/manifest.json 缺少 id 字段`);
+                    continue;
+                }
 
                 // 如果是已存在的插件，保留原有的 addedAt；否则使用当前时间
-                const addedAt = existingPlugins[id]?.addedAt || Date.now();
+                const addedAt = existingPlugins[manifest.id]?.addedAt || Date.now();
 
                 const plugin = {
-                    id,
-                    addedAt,
                     ...manifest,
+                    addedAt,
                     folder: dir
                 };
 
-                const status = existingPlugins[id] ? '更新' : '新增';
+                const status = existingPlugins[manifest.id] ? '更新' : '新增';
                 packages.push(plugin);
-                console.log(`✓ 已收集: ${dir} (id: ${id}, ${status})`);
+                console.log(`✓ 已收集: ${dir} (id: ${manifest.id}, ${status})`);
             } catch (error) {
                 console.error(`✗ 读取 ${dir}/manifest.json 失败:`, error.message);
             }
