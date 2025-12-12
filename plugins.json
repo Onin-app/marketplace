@@ -1,4 +1,22 @@
 {
-  "datetime": 1765533620616,
-  "packages": []
+  "datetime": 1765533861739,
+  "packages": [
+    {
+      "id": "byper.web-translate.onin",
+      "title": "Translate",
+      "description": "A aggregated translate plugin running on Onin",
+      "author": "b-yp",
+      "repository": "b-yp/onin-web-translate",
+      "icon": "icon.svg",
+      "category": "productivity",
+      "keywords": [
+        "翻译",
+        "工具",
+        "效率"
+      ],
+      "license": "MIT",
+      "addedAt": 1765533861735,
+      "folder": "onin-web-translate"
+    }
+  ]
 }
